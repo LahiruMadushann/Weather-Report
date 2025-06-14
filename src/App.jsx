@@ -33,8 +33,7 @@ function App() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-blue-400">
-      <WeatherIcon condition="Moderate rain" isDay={true} />
-
+      <WeatherIcon condition={weatherData?.current?.condition?.text} isDay={weatherData?.current?.is_day} />
     </div>
   );
 }

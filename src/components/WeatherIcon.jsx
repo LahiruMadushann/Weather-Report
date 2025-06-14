@@ -5,7 +5,7 @@ const WeatherIcon = ({condition, isDay}) => {
     const iconClass = "w-16 h-16 text-white drop-shadow-lg";
 
     if (condition === 'Sunny') {
-        return isDay ? <Sun className={iconClass} /> : <Cloud className={iconClass} />;
+        return isDay === 1 ? <Sun className={iconClass} /> : <Cloud className={iconClass} />;
     } else if (condition === 'Patchy rain possible' || condition === 'Patchy light rain' || condition === 'Light rain') {
         return <Droplets className={iconClass} />;
     } else if (condition === 'Partly cloudy') {
