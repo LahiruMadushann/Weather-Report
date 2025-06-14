@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import WeatherIcon from './components/WeatherIcon';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -31,8 +32,9 @@ function App() {
   }, [API_KEY, API_URL, location]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <h1 className="text-3xl font-bold underline mt-14">Hello Weather App</h1>
+    <div className="flex items-center justify-center min-h-screen bg-blue-400">
+      <WeatherIcon condition="Moderate rain" isDay={true} />
+
     </div>
   );
 }
