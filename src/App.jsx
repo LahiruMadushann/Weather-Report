@@ -3,6 +3,7 @@ import axios from 'axios';
 import WeatherIcon from './components/WeatherIcon';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
+import WeatherDisplay from './components/WeatherDisplay';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -40,6 +41,9 @@ function App() {
       </div>
       <div className='max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg mt-8'>
         <SearchBar onSearch={setLocation} />
+      </div>
+      <div>
+        {/* <WeatherDisplay weatherData={weatherData} /> */}
       </div>
     <div className="flex items-center justify-center">
       <WeatherIcon condition={weatherData?.current?.condition?.text} isDay={weatherData?.current?.is_day} />
