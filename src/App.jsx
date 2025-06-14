@@ -33,11 +33,11 @@ function App() {
   }, [API_KEY, API_URL, location]);
 
   return (
-    <div>
+    <div className='min-h-screen bg-blue-400'>
       <div>
         <Header />
       </div>
-    <div className="flex items-center justify-center min-h-screen bg-blue-400">
+    <div className="flex items-center justify-center">
       <WeatherIcon condition={weatherData?.current?.condition?.text} isDay={weatherData?.current?.is_day} />
     </div>
     </div>
