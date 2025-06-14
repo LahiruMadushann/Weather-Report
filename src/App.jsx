@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import WeatherIcon from './components/WeatherIcon';
+import Header from './components/Header';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -32,8 +33,13 @@ function App() {
   }, [API_KEY, API_URL, location]);
 
   return (
+    <div>
+      <div>
+        <Header />
+      </div>
     <div className="flex items-center justify-center min-h-screen bg-blue-400">
       <WeatherIcon condition={weatherData?.current?.condition?.text} isDay={weatherData?.current?.is_day} />
+    </div>
     </div>
   );
 }
