@@ -9,6 +9,7 @@ import WeatherCardsGrid from './components/WeatherCardsGrid';
 import LoadingSpinner from './components/LoadingSpinner';
 import ErrorMessage from './components/ErrorMessage';
 import Footer from './components/Footer';
+import fetchWeatherData from './services/fetchWeatherData';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -19,25 +20,18 @@ function App() {
   const API_URL = import.meta.env.VITE_WEATHER_API_URL;
 
   useEffect(() => {
-    const fetchWeather = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URL}/current.json`, {
-          params: {
-            key: API_KEY,
-            q: location,
-            aqi: 'no'
-          }
-        });
-        setWeatherData(response.data);
-
-        console.log('Weather Data:', response.data);
+        const data = await fetchWeatherData(location);
+        setWeatherData(data);
+        console.log('Weather Data:', data);
       } catch (error) {
         setError('Failed to fetch weather data');
       }
     };
 
-    fetchWeather();
-  }, [API_KEY, API_URL, location]);
+    fetchData();
+  }, [location]);
 
   return (
     <div className='min-h-screen bg-blue-400'>
