@@ -4,6 +4,7 @@ import WeatherIcon from './components/WeatherIcon';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import WeatherDisplay from './components/WeatherDisplay';
+import WeatherCard from './components/WeatherCard';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -43,7 +44,20 @@ function App() {
         <SearchBar onSearch={setLocation} />
       </div>
       <div>
-        {/* <WeatherDisplay weatherData={weatherData} /> */}
+        {weatherData && (
+          <WeatherDisplay weatherData={weatherData} />
+        )}
+      </div>
+      <div>
+        {weatherData && (
+          <WeatherCard
+            title="Temperature"
+            value={weatherData.current.temp_c}
+            unit="°C"
+            icon={WeatherIcon}
+            gradient="from-blue-500 to-blue-700"
+          />
+        )}
       </div>
     <div className="flex items-center justify-center">
       <WeatherIcon condition={weatherData?.current?.condition?.text} isDay={weatherData?.current?.is_day} />
