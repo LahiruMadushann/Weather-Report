@@ -5,6 +5,7 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import WeatherDisplay from './components/WeatherDisplay';
 import WeatherCard from './components/WeatherCard';
+import WeatherCardsGrid from './components/WeatherCardsGrid';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -50,13 +51,7 @@ function App() {
       </div>
       <div>
         {weatherData && (
-          <WeatherCard
-            title="Temperature"
-            value={weatherData.current.temp_c}
-            unit="°C"
-            icon={WeatherIcon}
-            gradient="from-blue-500 to-blue-700"
-          />
+          <WeatherCardsGrid weatherData={weatherData} />
         )}
       </div>
     <div className="flex items-center justify-center">
