@@ -6,6 +6,8 @@ import SearchBar from './components/SearchBar';
 import WeatherDisplay from './components/WeatherDisplay';
 import WeatherCard from './components/WeatherCard';
 import WeatherCardsGrid from './components/WeatherCardsGrid';
+import LoadingSpinner from './components/LoadingSpinner';
+import ErrorMessage from './components/ErrorMessage';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -53,6 +55,12 @@ function App() {
         {weatherData && (
           <WeatherCardsGrid weatherData={weatherData} />
         )}
+      </div>
+      <div>
+        <LoadingSpinner />
+      </div>
+      <div>
+        <ErrorMessage error={error} onRetry={() => setLocation(location)} />
       </div>
     <div className="flex items-center justify-center">
       <WeatherIcon condition={weatherData?.current?.condition?.text} isDay={weatherData?.current?.is_day} />
