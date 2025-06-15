@@ -8,6 +8,7 @@ import WeatherCard from './components/WeatherCard';
 import WeatherCardsGrid from './components/WeatherCardsGrid';
 import LoadingSpinner from './components/LoadingSpinner';
 import ErrorMessage from './components/ErrorMessage';
+import Footer from './components/Footer';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -64,6 +65,9 @@ function App() {
       </div>
     <div className="flex items-center justify-center">
       <WeatherIcon condition={weatherData?.current?.condition?.text} isDay={weatherData?.current?.is_day} />
+    </div>
+    <div>
+      <Footer />
     </div>
     </div>
   );
