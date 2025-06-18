@@ -27,7 +27,7 @@ const SearchBar = ({ onSearch }) => {
             onChange={(e) => setSearchLocation(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Search for a city..."
-            className="w-full px-6 py-4 pr-12 rounded-2xl border-0 shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 text-gray-700 placeholder-gray-400 transition-all duration-150"
+            className="w-full px-6 py-4 pr-12 rounded-2xl border-0 shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 text-gray-700 placeholder-gray-400 transition-all duration-150 bg-white"
           />
           <button
             onClick={handleSearch}
