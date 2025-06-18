@@ -86,9 +86,11 @@ const fetchWeatherData = async (location) => {
     });
 
     const weatherData = response.data;
-    if (weatherData.location.country !== "Sri Lanka") {
-      throw new Error("Invalid location: Not a Sri Lankan city");
-    }
+        if (weatherData.location.country !== "Sri Lanka") {
+            throw new Error("Invalid location: Not a Sri Lankan city");
+        }
+
+        await new Promise((resolve) => setTimeout(resolve, 1500));
 
     return {
       location: {
