@@ -10,6 +10,7 @@ import LoadingSpinner from './components/LoadingSpinner';
 import ErrorMessage from './components/ErrorMessage';
 import Footer from './components/Footer';
 import fetchWeatherData from './services/fetchWeatherData';
+import HomePage from './pages/HomePage';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -34,35 +35,8 @@ function App() {
   }, [location]);
 
   return (
-    <div className='min-h-screen bg-blue-400'>
-      <div>
-        <Header />
-      </div>
-      <div className='max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg mt-8'>
-        <SearchBar onSearch={setLocation} />
-      </div>
-      <div>
-        {weatherData && (
-          <WeatherDisplay weatherData={weatherData} />
-        )}
-      </div>
-      <div>
-        {weatherData && (
-          <WeatherCardsGrid weatherData={weatherData} />
-        )}
-      </div>
-      <div>
-        <LoadingSpinner />
-      </div>
-      <div>
-        <ErrorMessage error={error} onRetry={() => setLocation(location)} />
-      </div>
-    <div className="flex items-center justify-center">
-      <WeatherIcon condition={weatherData?.current?.condition?.text} isDay={weatherData?.current?.is_day} />
-    </div>
     <div>
-      <Footer />
-    </div>
+      <HomePage />
     </div>
   );
 }
