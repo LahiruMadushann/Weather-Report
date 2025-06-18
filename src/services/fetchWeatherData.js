@@ -115,6 +115,7 @@ const fetchWeatherData = async (location) => {
         feelslike_f: weatherData.current.feelslike_f,
         uv: weatherData.current.uv,
         vis_km: weatherData.current.vis_km,
+        is_day: weatherData.current.is_day,
       },
       air_quality: weatherData.current.air_quality || null,
       isValidSriLankanLocation: true,
